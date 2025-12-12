@@ -1,0 +1,169 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Urban Spice Café - Login / Sign-Up</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Center Card Layout */
+    .auth-wrapper {
+      max-width: 400px;
+      margin: 40px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .auth-wrapper h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    input {
+      border-radius: 6px;
+      border: 1px solid #c8d3d3;
+    }
+
+    button {
+      margin-top: 5px;
+      border-radius: 6px;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .switch-text {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    a {
+      color: #006b6b;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>Urban Spice Café</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="reservation.html">Reservation</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="login.html">Login / Sign-Up</a>
+  </nav>
+</header>
+
+<div class="auth-wrapper">
+
+  <!-- LOGIN FORM -->
+  <div id="loginBox">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email">
+      <input type="password" id="loginPass" placeholder="Password">
+      <div id="loginError" class="error"></div>
+      <button type="submit">Login</button>
+    </form>
+    <p class="switch-text">Don't have an account? <a onclick="showSignup()">Sign Up</a></p>
+  </div>
+
+  <!-- SIGNUP FORM -->
+  <div id="signupBox" style="display:none;">
+    <h2>Sign-Up</h2>
+    <form id="signupForm">
+      <input type="text" id="signName" placeholder="Name">
+      <input type="email" id="signEmail" placeholder="Email">
+      <input type="password" id="signPass" placeholder="Password">
+      <input type="password" id="signCPass" placeholder="Confirm Password">
+      <div id="signError" class="error"></div>
+      <button type="submit">Sign-Up</button>
+    </form>
+    <p class="switch-text">Already have an account? <a onclick="showLogin()">Login</a></p>
+  </div>
+
+</div>
+
+<script>
+  // SWITCH VIEW
+  function showSignup() {
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("signupBox").style.display = "block";
+  }
+  function showLogin() {
+    document.getElementById("signupBox").style.display = "none";
+    document.getElementById("loginBox").style.display = "block";
+  }
+
+  // BASIC EMAIL VALIDATION
+  function isEmail(v) {
+    return v.indexOf("@") > 0 && v.indexOf(".") > 0;
+  }
+
+  // SIGN-UP (Save to localStorage)
+  document.getElementById("signupForm").onsubmit = function(e) {
+    e.preventDefault();
+
+    let name = signName.value.trim();
+    let email = signEmail.value.trim();
+    let pass = signPass.value.trim();
+    let cpass = signCPass.value.trim();
+    let err = signError;
+    err.textContent = "";
+
+    if (!name || !email || !pass || !cpass) {
+      err.textContent = "Please fill all fields.";
+      return;
+    }
+    if (!isEmail(email)) {
+      err.textContent = "Invalid email.";
+      return;
+    }
+    if (pass.length < 6) {
+      err.textContent = "Password must be at least 6 characters.";
+      return;
+    }
+    if (pass !== cpass) {
+      err.textContent = "Passwords do not match.";
+      return;
+    }
+
+    // Save locally (localhost simulation)
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userPass", pass);
+    localStorage.setItem("userName", name);
+
+    alert("Sign-Up successful!");
+    showLogin();
+  };
+
+  // LOGIN (Check localStorage)
+  document.getElementById("loginForm").onsubmit = function(e) {
+    e.preventDefault();
+
+    let email = loginEmail.value.trim();
+    let pass = loginPass.value.trim();
+    let err = loginError;
+    err.textContent = "";
+
+    let savedEmail = localStorage.getItem("userEmail");
+    let savedPass = localStorage.getItem("userPass");
+
+    if (!email || !pass) {
+      err.textContent = "Fill all fields.";
+      return;
+    }
+    if (email === savedEmail && pass === savedPass) {
+      alert("Login successful!");
+      window.location.href = "index.html";
+    } else {
+      err.textContent = "Incorrect email or password.";
+    }
+  };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Urban Spice Café - Home</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+   
+
+    .top-bar {
+      background: #004040;
+      color: #cfeeee;
+      padding: 5px 15px;
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .hero {
+      background: #002f2f;
+      color: white;
+      padding: 25px 15px;
+      text-align: left;
+    }
+
+    .hero h2 {
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+
+    .hero p {
+      font-size: 14px;
+      margin: 2px 0;
+    }
+
+    .content-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .box {
+      background: white;
+      border: 1px solid #cfd9df;
+      padding: 12px;
+      border-radius: 4px;
+    }
+
+    .menu-section h3 {
+      margin-top: 8px;
+      margin-bottom: 4px;
+      font-size: 16px;
+      color: #004c4c;
+    }
+
+    .menu-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 14px;
+    }
+
+    .menu-list li {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed #ddd;
+      padding: 4px 0;
+    }
+
+    .menu-name {
+      font-weight: bold;
+    }
+
+    .menu-price {
+      color: #006b6b;
+      margin-left: 8px;
+      white-space: nowrap;
+    }
+
+    .tagline {
+      font-style: italic;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .info-list {
+      font-size: 14px;
+      padding-left: 18px;
+    }
+
+    .highlight {
+      background: #e0f4f3;
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .content-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  Open: 10:00 AM – 10:00 PM · Call: +91-98765-43210
+</div>
+
+<header>
+  <h1>Urban Spice Café</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="reservation.html">Reservation</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="login.html">Login / Sign-Up</a>
+  </nav>
+</header>
+
+
+<div class="hero">
+  <h2>City Café for Food & Conversations</h2>
+  <p>Fresh bites · Slow music · Warm lights</p>
+  <p class="tagline">Grab a wrap, sip a frappe, and enjoy the café vibes.</p>
+</div>
+
+<div class="container">
+
+  <div class="content-layout">
+    <!-- Main menu area -->
+    <div class="box menu-section">
+      <h2>Menu Highlights</h2>
+
+      <h3>Food</h3>
+      <ul class="menu-list">
+        <li>
+          <span class="menu-name">Spicy Paneer Wrap</span>
+          <span class="menu-price">₹149</span>
+        </li>
+        <li>
+          <span class="menu-name">Urban Club Sandwich</span>
+          <span class="menu-price">₹189</span>
+        </li>
+        <li>
+          <span class="menu-name">Veggie Loaded Fries</span>
+          <span class="menu-price">₹129</span>
+        </li>
+        <li>
+          <span class="menu-name">Arrabbiata Pasta</span>
+          <span class="menu-price">₹199</span>
+        </li>
+        <li>
+          <span class="menu-name">Creamy White Sauce Pasta</span>
+          <span class="menu-price">₹209</span>
+        </li>
+        <li>
+          <span class="menu-name">Cheesy Garlic Bread (4 pcs)</span>
+          <span class="menu-price">₹119</span>
+        </li>
+      </ul>
+
+      <h3>Drinks & Desserts</h3>
+      <ul class="menu-list">
+        <li>
+          <span class="menu-name">Caramel Frappe</span>
+          <span class="menu-price">₹129</span>
+        </li>
+        <li>
+          <span class="menu-name">Classic Cold Coffee</span>
+          <span class="menu-price">₹109</span>
+        </li>
+        <li>
+          <span class="menu-name">Iced Lemon Tea</span>
+          <span class="menu-price">₹89</span>
+        </li>
+        <li>
+          <span class="menu-name">Hot Chocolate</span>
+          <span class="menu-price">₹129</span>
+        </li>
+        <li>
+          <span class="menu-name">Chocolate Brownie</span>
+          <span class="menu-price">₹99</span>
+        </li>
+        <li>
+          <span class="menu-name">Vanilla Scoop Ice Cream</span>
+          <span class="menu-price">₹79</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Side info area -->
+    <div class="box">
+      <h2>Why Visit Urban Spice Café?</h2>
+      <ul class="info-list">
+        <li>Perfect for small meetups and study sessions.</li>
+        <li>Free Wi-Fi for students and remote workers.</li>
+        <li>Veg-friendly menu with café classics.</li>
+        <li>Music at a soft, comfortable volume.</li>
+      </ul>
+
+      <h3 style="margin-top:10px;">New Here?</h3>
+      <p class="highlight">
+        First time visiting? Try our combo:
+        <br>• Urban Club Sandwich + Caramel Frappe – <strong>₹249</strong>
+      </p>
+
+      <p style="font-size:13px;margin-top:8px;">
+        You can also <strong>book a table online</strong> using the Reservation page.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
